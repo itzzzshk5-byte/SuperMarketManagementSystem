@@ -183,5 +183,40 @@ namespace SuperMarket
             txtEmail.Clear();
             selectedId = 0; // Reset so no customer is considered selected
         }
+
+    
+            private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var conn = CDBHelper.GetConnection())
+                {
+                    conn.Open();
+                    string query = @"SELECT * FROM customers
+                WHERE name LIKE @search
+                OR phone LIKE @search
+                OR email LIKE @search";
+                    SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@search",
+                        "%" + txtSearch.Text + "%");
+                    SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgvCustomers.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+      
+            private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+            LoadCustomers();
+        }
     }
-}
+    }
+    

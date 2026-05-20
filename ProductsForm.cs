@@ -180,5 +180,57 @@ namespace SuperMarket
             txtStock.Clear();
             selectedId = 0; // Reset so no product is considered selected
         }
+
+      
+            // Search products by name or category
+
+        
+private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "")
+            {
+                MessageBox.Show("Please enter search term!");
+                return;
+            }
+
+            try
+            {
+                using (var conn = CDBHelper.GetConnection())
+                {
+                    conn.Open();
+
+                    // LIKE with % allows partial matching
+                    // Example: typing "ric" finds "Rice 5kg"
+                    string query = @"SELECT * FROM products
+                WHERE product_name LIKE @search
+                OR category LIKE @search";
+
+                    SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@search",
+                        "%" + txtSearch.Text + "%");
+
+                    SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgvProducts.DataSource = dt;
+
+                    if (dt.Rows.Count == 0)
+                        MessageBox.Show("No products found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+       
+            // Reset search and show all products
+private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+            LoadProducts();
+        }
     }
-}
+    }
+   

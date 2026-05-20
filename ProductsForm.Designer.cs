@@ -41,6 +41,9 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnShowAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,7 +92,7 @@
             this.txtProductName.Location = new System.Drawing.Point(244, 74);
             this.txtProductName.Multiline = true;
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(213, 39);
+            this.txtProductName.Size = new System.Drawing.Size(317, 39);
             this.txtProductName.TabIndex = 4;
             // 
             // txtCategory
@@ -97,7 +100,7 @@
             this.txtCategory.Location = new System.Drawing.Point(244, 148);
             this.txtCategory.Multiline = true;
             this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(213, 39);
+            this.txtCategory.Size = new System.Drawing.Size(317, 39);
             this.txtCategory.TabIndex = 5;
             // 
             // txtPrice
@@ -105,7 +108,7 @@
             this.txtPrice.Location = new System.Drawing.Point(244, 220);
             this.txtPrice.Multiline = true;
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(213, 39);
+            this.txtPrice.Size = new System.Drawing.Size(317, 39);
             this.txtPrice.TabIndex = 6;
             // 
             // txtStock
@@ -113,13 +116,13 @@
             this.txtStock.Location = new System.Drawing.Point(244, 295);
             this.txtStock.Multiline = true;
             this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(213, 39);
+            this.txtStock.Size = new System.Drawing.Size(317, 39);
             this.txtStock.TabIndex = 7;
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(60, 385);
+            this.btnAdd.Location = new System.Drawing.Point(79, 385);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(98, 54);
             this.btnAdd.TabIndex = 8;
@@ -130,7 +133,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(202, 385);
+            this.btnUpdate.Location = new System.Drawing.Point(232, 385);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(98, 54);
             this.btnUpdate.TabIndex = 9;
@@ -141,7 +144,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(348, 385);
+            this.btnDelete.Location = new System.Drawing.Point(377, 385);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(98, 54);
             this.btnDelete.TabIndex = 10;
@@ -152,7 +155,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(488, 385);
+            this.btnClear.Location = new System.Drawing.Point(525, 385);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(98, 54);
             this.btnClear.TabIndex = 11;
@@ -164,20 +167,53 @@
             // 
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducts.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvProducts.Location = new System.Drawing.Point(0, 464);
+            this.dgvProducts.Location = new System.Drawing.Point(0, 567);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowHeadersWidth = 62;
             this.dgvProducts.RowTemplate.Height = 28;
-            this.dgvProducts.Size = new System.Drawing.Size(629, 141);
+            this.dgvProducts.Size = new System.Drawing.Size(711, 141);
             this.dgvProducts.TabIndex = 12;
             this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(60, 484);
+            this.txtSearch.Multiline = true;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(220, 48);
+            this.txtSearch.TabIndex = 13;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(330, 474);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(117, 58);
+            this.btnSearch.TabIndex = 14;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowAll.Location = new System.Drawing.Point(506, 474);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(117, 58);
+            this.btnShowAll.TabIndex = 15;
+            this.btnShowAll.Text = "ShowAll";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
             // ProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(629, 605);
+            this.ClientSize = new System.Drawing.Size(711, 708);
+            this.Controls.Add(this.btnShowAll);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDelete);
@@ -215,5 +251,8 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.DataGridView dgvProducts;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnShowAll;
     }
 }
