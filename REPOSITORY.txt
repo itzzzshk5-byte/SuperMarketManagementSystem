@@ -1,0 +1,7 @@
+GitHub Repository Link:
+https://github.com/itzzzshk5-byte/SupermarketManagementSystem
+
+Project Name: Supermarket Management System
+Course: Visual Programming CS-412
+Language: C# Windows Forms
+Database: SQLite
